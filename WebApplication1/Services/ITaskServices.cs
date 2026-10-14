@@ -6,9 +6,9 @@ namespace WebApplication1.Services
     public interface ITaskServices
     {
         Task<TaskResponseDto> CreateTaskAsync(CreateTaskDto dto);
-        Task<List<TaskResponseDto>> GetAllTaskAsync();
-        Task<TaskResponseDto> GetTaskById(int id);
-        Task<TaskResponseDto> UpdateById(int id, UpdateTaskDto dto);
-        Task DeleteTask(int id);
+        Task<List<TaskResponseDto>> GetAllTaskAsync(string? status = null);
+        Task<TaskResponseDto?> GetTaskById(int id);
+        Task<TaskResponseDto?> UpdateById(int id, UpdateTaskDto dto);
+        Task<bool> DeleteTask(int id);
     }
 }

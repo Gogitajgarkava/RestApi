@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-
-namespace WebApplication1.DTOs.Requests;
-
-public class CreateTaskDto
+namespace WebApplication1.DTOs.Requests
 {
-    
-    [Required(ErrorMessage = "Fill the Title")]
-    [MaxLength(200, ErrorMessage = "No More 200 charapter")]
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public Models.TaskStatus Status { get; set; } = Models.TaskStatus.Preding;
+    public class CreateTaskDto
+    {
+        [Required(ErrorMessage = "Title is required")]
+        [MaxLength(200, ErrorMessage = "Title cannot exceed 200 characters")]
+        public string Title { get; set; } = string.Empty;
 
-    [Required(ErrorMessage ="Specifying the ass is mandatory")]
-    public string? Assignee { get; set; }
-    public DateTime? DueDate { get; set; }
+        public string? Description { get; set; }
+
+        public Models.TaskStatus Status { get; set; } = Models.TaskStatus.Pending;
+
+        [Required(ErrorMessage = "Assignee is required")]
+        public string Assignee { get; set; } = string.Empty;
+
+        public DateTime? DueDate { get; set; }
+    }
 }
