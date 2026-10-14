@@ -44,7 +44,7 @@ cd YOUR_REPOSITORY
 1. შეამოწმეთ `appsettings.json` ფაილი და საჭიროებისამებრ ჩაასწორეთ `ConnectionStrings`:
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Server=YOUR_SERVER;Database=TasksDb;Trusted_Connection=True;TrustServerCertificate=True;"
+     "DefaultConnection": "your-connection-string"
    }
    ```
 2. (თუ იყენებთ `.env` ფაილს): შექმენით `.env` ფაილი პროექტის ძირში `.env.example`-ის მიხედვით.
