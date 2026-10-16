@@ -8,4 +8,5 @@ public class Baza : DbContext
     {
     }
     public DbSet<Tasks> Tasks { get; set; }
+    public DbSet<User> Users { get; set; }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.DTOs.Requests;
 using WebApplication1.DTOs.Responses;
@@ -19,6 +20,7 @@ namespace WebApplication1.Controllers
 
         
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllTasks([FromQuery] string? status)
         {
             var tasks = await _services.GetAllTaskAsync(status);
@@ -36,7 +38,7 @@ namespace WebApplication1.Controllers
 
             return Ok(task);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateTask([FromBody] CreateTaskDto dto)
         {
